@@ -1,89 +1,92 @@
 import React, { useEffect, useState } from "react";
 import Story from "./Story";
+import { signIn, useSession } from "next-auth/react";
 
 const Stories = () => {
   const [Suggestions, setSuggestions] = useState([]);
 
+  const { data: session } = useSession();
+
   const data = [
     {
       id: 1,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-1.png",
+      username: "Roger Lanning",
     },
     {
       id: 2,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-2.png",
+      username: "Edward Castillo",
     },
     {
       id: 3,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-3.png",
+      username: "Carlos Sandoval",
     },
     {
       id: 4,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-4.png",
+      username: "Gina Jurado",
     },
     {
       id: 5,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-5.png",
+      username: "Louis Everette",
     },
     {
       id: 7,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-6.png",
+      username: "David Martin",
     },
     {
       id: 8,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-7.png",
+      username: "Vincent Thoreson",
     },
     {
       id: 9,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-8.png",
+      username: "Brian Delong",
     },
     {
       id: 10,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-9.png",
+      username: "Christopher Alexander",
     },
     {
       id: 11,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-10.png",
+      username: "Rod Berrios",
     },
     {
       id: 12,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-11.png",
+      username: "Richard McAlpine",
     },
     {
       id: 13,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-12.png",
+      username: "Mark Murphy",
     },
     {
       id: 14,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-13.png",
+      username: "Robert Haggard",
     },
     {
       id: 15,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-14.png",
+      username: "Nicholas Regan",
     },
     {
       id: 16,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-15.png",
+      username: "Christopher Wright",
     },
     {
       id: 17,
-      avatar: "/hp.jpg",
-      username: "hit patel",
+      avatar: "avatar-16.png",
+      username: "Carlos Linthicum",
     },
   ];
 
@@ -92,7 +95,11 @@ const Stories = () => {
   }, []);
 
   return (
-    <div className="flex space-x-2 p-6 bg-white mt-8 border-gray-200 border rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black ">
+    <div className="flex space-x-2 p-4 bg-white mt-4 border-gray-200 border rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black ">
+      {session && (
+        <Story img={session?.user?.image} userName={session?.user?.name} />
+      )}
+
       {Suggestions.map((profile) => (
         <Story
           key={profile.id}

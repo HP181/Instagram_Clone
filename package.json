@@ -9,11 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.0",
     "@tailwindcss/forms": "^0.5.3",
+    "firebase": "^9.9.4",
     "next": "12.3.0",
+    "next-auth": "^4.10.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
+    "react-moment": "^1.1.2",
+    "spinners-react": "^1.0.7",
     "tailwind-scrollbar": "^2.0.1",
     "tailwind-scrollbar-hide": "^1.1.7"
   },
